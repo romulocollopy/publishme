@@ -5,3 +5,7 @@ run-dev:
 	$ venv/bin/pip-compile requirements/dev.in -o requirements/dev.txt
 	$ venv/bin/pip-sync requirements/dev.txt
 	$ venv/bin/python src/runserver.py
+
+run-prod:
+	$ echo "***docker-compose is required***"
+	$ docker-compose up
