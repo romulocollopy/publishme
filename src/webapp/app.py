@@ -9,11 +9,7 @@ class App:
         self.engine = engine
         self.router = router
 
-    def load_routes(self):
-        self.router.load_routes()
-
     def run(self, *args, **kwargs):
-        self.load_routes()
         self.engine.run(*args, **kwargs)
 
     @classmethod
