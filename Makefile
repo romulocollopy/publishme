@@ -9,3 +9,6 @@ run-dev:
 run-prod:
 	$ echo "***docker-compose is required***"
 	$ docker-compose up
+
+run-tests:
+	$ venv/bin/python -m unittest discover -s src

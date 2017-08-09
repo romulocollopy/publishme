@@ -1,5 +1,5 @@
-from sanic.response import json
+from sanic.response import json as json_response
 
 
 async def hello_world(request):
-    return json({"hello": "world"})
+    return json_response({"hello": "world"})
