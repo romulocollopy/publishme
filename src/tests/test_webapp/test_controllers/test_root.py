@@ -1,11 +1,11 @@
 import unittest
-from webapp.app import App as WebApp
+from webapp.app import app as webapp
 
 
 class HelloWorldTestCase(unittest.TestCase):
 
     def setUp(self):
-        app = WebApp.build()
+        app = webapp
         self.url = app.router.get_path_by_name('hello-world')
         self.engine = app.engine
 
