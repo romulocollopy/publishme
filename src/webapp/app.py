@@ -26,8 +26,10 @@ class App:
         self.engine.run(*args, **kwargs)
 
     def load_blueprints(self):
-        from .controllers.root import bp as root_controller
-        self.engine.blueprint(root_controller)
+        from .controllers.root import bp as index
+        from .controllers.publications.articles import bp as articles
+        self.engine.blueprint(index)
+        self.engine.blueprint(articles)
 
     def load_template_engine(self):
         self.template_engine = self.template_engine_class(self.engine)
