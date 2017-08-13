@@ -1,5 +1,11 @@
-from sanic.response import json as json_response
+from sanic import Blueprint
+
+bp = Blueprint(__name__)
 
 
-async def hello_world(request):
-    return json_response({"hello": "world"})
+@bp.route('/')
+async def index(request):
+    from app import jinja
+    return jinja.render(
+        'index.html', request
+    )

@@ -6,7 +6,7 @@ class HelloWorldTestCase(unittest.TestCase):
 
     def setUp(self):
         app = webapp
-        self.url = app.router.get_path_by_name('hello-world')
+        self.url = app.engine.url_for('webapp.controllers.root.hello_world')
         self.engine = app.engine
 
     def test_200(self):

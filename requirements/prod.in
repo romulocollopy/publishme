@@ -1,1 +1,1 @@
--r base.in
+uWSGI==2.0.15
