@@ -12,3 +12,6 @@ run-prod:
 
 run-tests:
 	$ venv/bin/python -m unittest discover -s src
+
+run-prod:
+	$ cd src && gunicorn runserver:webapp.engine --bind 0.0.0.0:3000 --worker-class sanic.worker.GunicornWorker

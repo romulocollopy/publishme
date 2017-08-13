@@ -1,5 +1,10 @@
-from sanic.response import json as json_response
+from sanic import Blueprint
+from webapp.app import App
+
+bp = Blueprint(__name__)
+app = App.build()
 
 
+@bp.route('/')
 async def hello_world(request):
-    return json_response({"hello": "world"})
+    return app.template_engine.render('index.html', request)
