@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ username }}'s articles</h2>
+<dl>
+    {% for article in articles %}
+    <dt><h3><a href="{{ article.absolute_url }}">{{ article.title }}</a></h3></dt>
+    <dd>{{ article.body | slice(50) }}...</dd>
+    {% endfor %}
+</dl>
+{% endblock content %}
