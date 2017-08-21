@@ -4,4 +4,9 @@ class ArticleDetailUseCase:
         pass
 
     def execute(self):
-        return {}
+        return {
+            'article': {
+                'title': 'Article Title',
+                'body': '<p>Article body.</p>'
+            }
+        }

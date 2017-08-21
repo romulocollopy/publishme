@@ -5,7 +5,7 @@ from webapp.app import App
 class IndexTestCase(unittest.TestCase):
 
     def setUp(self):
-        app = App.build()
+        app = App()
         self.url = app.engine.url_for('root.index')
         self.engine = app.engine
 

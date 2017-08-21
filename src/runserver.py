@@ -2,7 +2,7 @@
 from webapp.app import App
 from webapp.settings import DEBUG
 
-webapp = App.build()
+webapp = App()
 
 
 if __name__ == "__main__":

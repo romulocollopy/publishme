@@ -2,7 +2,7 @@ from sanic import Blueprint
 from webapp.app import App
 
 bp = Blueprint('root')
-app = App.build()
+app = App()
 
 
 @bp.route('/')

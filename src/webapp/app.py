@@ -12,12 +12,15 @@ class App:
             cls._instance = super(App, cls).__new__(cls)
         return cls._instance
 
-    def __init__(self, engine, template_engine_class):
-        if self._loaded:
-            return
-        self._loaded = True
-        self.engine = engine
-        self.template_engine_class = template_engine_class
+    def __init__(self, engine_class=None, template_engine_class=None):
+        self.engine_class = engine_class or Sanic
+        self.template_engine_class = template_engine_class or SanicJinja2
+        if not self._loaded:
+            self._loaded = True
+            self.setup()
+
+    def setup(self, *args, **kwargs):
+        self.engine = self.engine_class(__name__, *args, **kwargs)
         self.load_template_engine()
         self.load_blueprints()
         self.load_static()
@@ -37,9 +40,3 @@ class App:
     def load_static(self):
         if DEBUG:
             self.engine.static('/static', STATIC_ROOT)
-
-    @classmethod
-    def build(cls, *args, **kwargs):
-        engine = Sanic(__name__, *args, **kwargs)
-        template_engine_class = SanicJinja2
-        return cls(engine, template_engine_class)

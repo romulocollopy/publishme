@@ -1,5 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<article>
 <h1>{{ article.title }}</h1>
+{{ article.body }}
+</article>
+<p><small>About <a href={{ url_for('root.index') }}>{{ author }}</a></small></p>
+<hr />
+<nav>
+    <dl>
+        <dt>More from {{ author }}</dt>
+        <dd>
+            <ul>
+            {% for article in author.articles %}
+                <li></li>
+            {% else %}
+                <li>No articles to show</li>
+            {% endfor %}
+            </ul>
+        </dd>
+        <dt>Related articles</dt>
+        <dd>
+            <ul>
+            {% for article in article.related %}
+                <li></li>
+            {% else %}
+                <li>No articles to show</li>
+            {% endfor %}
+            </ul>
+        </dd>
+        <dt>Recent articles</dt>
+        <dd>
+            <ul>
+            {% for article in last_articles %}
+                <li></li>
+            {% else %}
+                <li>No articles to show</li>
+            {% endfor %}
+            </ul>
+        </dd>
+    </dl>
+</nav>
 {% endblock content %}

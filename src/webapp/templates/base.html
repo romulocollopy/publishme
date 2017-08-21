@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Publish Me</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>{% if article %}{{ article.title }} at {% elif author%}{{ author }} at {% endif %}publishme.cc</title>
     <link rel="stylesheet" href="/static/css/main.css">
 </head>
 <body>
