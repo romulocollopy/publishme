@@ -40,3 +40,8 @@ class App:
     def load_static(self):
         if DEBUG:
             self.engine.static('/static', STATIC_ROOT)
+
+    def destroy(self):
+        self._instance = None
+        self._loaded = False
+        del self
