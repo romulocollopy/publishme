@@ -9,3 +9,4 @@ env_repository = decouple.RepositoryIni(PROJECT_ROOT.parent / 'settings.ini')
 config = decouple.Config(env_repository)
 
 DEBUG = config('DEBUG', default=False, cast=bool)
+PORT = decouple.config('PORT', default=500, cast=int)
